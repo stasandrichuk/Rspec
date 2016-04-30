@@ -24,14 +24,18 @@ describe "Library object" do
         context "with no parameters" do
             it "has no books" do
                 lib = Library.new
-                lib.should have(0).books
+                # lib.should have(0).books
                 # expect(lib.books).length.should == 0
+                # expect(lib).to have_exactly(0).books
+                expect(lib).to receive(:book).exactly(0).times
             end
         end
         context "with a yaml file parameter" do
             it "has five books" do
-                @lib.should have(5).books
+                # @lib.should have(5).books
+                # expect(@lib).to have_exactly(5).books
                 # expect(@lib).books.length.should == 5
+                expect(@lib).to receive(:book).exactly(5).times
             end
         end
     end
